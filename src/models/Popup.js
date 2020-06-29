@@ -28,8 +28,8 @@ export default class Popup extends Base {
     this.userCategories = {
       // UNCATEGORIZED  : 'DISMISS',
       Essential: 'ALLOW',
-      Personalization: 'DISMISS',
-      Analytics: 'ALLOW',
+     // Personalization: 'DISMISS',
+      Statistics: 'ALLOW',
       // MARKETING: 'DISMISS'
     }
     this.customStyles = {}
@@ -261,7 +261,7 @@ export default class Popup extends Base {
    * @param { string<status> } allOrUndef      - If this is the only param, set ALL if not, set Uncategorized cookies statuses set to value.
    * @param { string<status> } essential       - Essential Cookies status set to value
    * @param { string<status> } personalization - Preferences / Functionality set to value
-   * @param { string<status> } analytics       - Analytis Cookies status set to value
+   * @param { string<status> } statistics      - Statistics Cookies status set to value
    * @param { string<status> } marketing       - Marketing Cookies status set to value
    * @return { undefined }
    */
@@ -435,7 +435,7 @@ export default class Popup extends Base {
         checkbox.checked = true;
         checkbox.disabled = true;
       }
-      if (checkbox.name == "Analytics") {
+      if (checkbox.name == "Statistics") {
         checkbox.checked = true;
       }
       checkbox.addEventListener('change', () => {

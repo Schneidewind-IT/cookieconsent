@@ -5,4 +5,4 @@ export const statusDeny = "DENY"
 export const statusAllow = "ALLOW"
 export const statusDismiss = "DISMISS"
 
-export const categories = ["Essential", "Analytics", "Personalization"] // "MARKETING" //"UNCATEGORIZED"
+export const categories = ["Essential", "Statistics"] // "MARKETING" //"UNCATEGORIZED" // "Personalization"
