@@ -29,7 +29,7 @@ export default class Popup extends Base {
       // UNCATEGORIZED  : 'DISMISS',
       Essential: 'ALLOW',
      // Personalization: 'DISMISS',
-      Statistics: 'ALLOW',
+      Statistics: 'DISMISS',
       // MARKETING: 'DISMISS'
     }
     this.customStyles = {}
@@ -435,9 +435,9 @@ export default class Popup extends Base {
         checkbox.checked = true;
         checkbox.disabled = true;
       }
-      if (checkbox.name == "Statistics") {
-        checkbox.checked = true;
-      }
+      // if (checkbox.name == "Statistics") {
+      //   checkbox.checked = true;
+      // }
       checkbox.addEventListener('change', () => {
         this.userCategories[checkbox.name] = checkbox.checked ? 'ALLOW' : 'DENY'
       })

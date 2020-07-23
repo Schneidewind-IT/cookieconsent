@@ -20,18 +20,23 @@
   -o-transition: transform 1s ease;
   transition: transform 1s ease;
 }
+
 .cc-animate.cc-revoke.cc-top {
   transform: translateY(-2em);
 }
+
 .cc-animate.cc-revoke.cc-bottom {
   transform: translateY(2em);
 }
+
 .cc-animate.cc-revoke.cc-active.cc-top {
   transform: translateY(0);
 }
+
 .cc-animate.cc-revoke.cc-active.cc-bottom {
   transform: translateY(0);
 }
+
 .cc-revoke:hover {
   transform: translateY(0);
 }
