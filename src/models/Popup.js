@@ -28,7 +28,7 @@ export default class Popup extends Base {
     this.userCategories = {
       // UNCATEGORIZED  : 'DISMISS',
       Essential: 'ALLOW',
-     // Personalization: 'DISMISS',
+      // Personalization: 'DISMISS',
       Statistics: 'DISMISS',
       // MARKETING: 'DISMISS'
     }
@@ -301,7 +301,7 @@ export default class Popup extends Base {
    */
   getStatuses() {
     return categories.map(categoryName => getCookie(this.options.cookie.name + '_' + categoryName))
-  }
+   }
 
   /**
    * Clear all cookie categoies statuses
@@ -328,8 +328,8 @@ export default class Popup extends Base {
     }))
     const hasMatches = matches.filter(match => match[Object.keys(match)[0]]).length > 0
     statusesValues.forEach((status, index) =>
-      this.userCategories[categories[index]] === status ?
-      status : this.userCategories[categories[index]])
+    this.userCategories[categories[index]] === status ?
+    status : this.userCategories[categories[index]])
 
     return hasMatches
   }
@@ -384,15 +384,25 @@ export default class Popup extends Base {
     }
 
     Object.keys(opts.elements).forEach(prop => {
-      interpolated[prop] = interpolateString(
-        opts.elements[prop],
-        name => {
-          const str = opts.content[name]
-          return name && typeof str == 'string' && str.length ? str : ''
-        }
-      )
+      if (prop.toLocaleLowerCase() == "categories") {
+        interpolated[prop] = interpolateString(
+          opts.elements[prop],
+          name => {
+            const str = opts.categoryLabels[name]
+            return name && typeof str == 'string' && str.length ? str : ''
+          }
+        )
+      } else {
+        interpolated[prop] = interpolateString(
+          opts.elements[prop],
+          name => {
+            const str = opts.content[name]
+            return name && typeof str == 'string' && str.length ? str : ''
+          }
+        )
+      }
     })
-
+    
     // checks if the type is valid and defaults to info if it's not
     let complianceType = opts.compliance[opts.type]
     if (!complianceType) {

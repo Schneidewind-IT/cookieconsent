@@ -44,7 +44,11 @@ export default {
     save: 'Save',
     acceptall: 'Accept All'
   },
-
+  
+  categoryLabels: {
+    essential: "essential",
+    statistics: "statistics"
+  },
   // This is the HTML for the elements above. The string {{header}} will be replaced with the equivalent text below.
   // You can remove "{{header}}" and write the content directly inside the HTML if you want.
   //
@@ -60,10 +64,10 @@ export default {
     link: '<a aria-label="learn more about cookies" role=button tabindex="0" class="cc-link" href="{{href}}" rel="noopener noreferrer nofollow" target="{{target}}">{{link}}</a>',
     close: '<span aria-label="dismiss cookie message" role=button tabindex="0" class="cc-close">{{close}}</span>',
     categories: '<ul class="cc-categories">' +
-      categories.map((category, index) =>
+    categories.map((category, index) =>
         `<li class="cc-category">
           <span class="cc-btn cc-toggle" tabindex="0"><input type="checkbox"  id="cc-toggle-${category}" name="${category}"/><label for="cc-toggle-${category}"></label></span>
-          <span class="cc-btn-checkbox cc-category-label">${category}</span>
+          <span class="cc-btn-checkbox cc-category-label">{{${category.toLowerCase()}}}</span>
           <!-- <button class="cc-btn cc-info" aria-label="${category} Definition Button" tabindex="${index+1}">^</button> -->
           <div class="cc-tooltip">
             <p>This is the category for cookies that don't fit the '${category.toLowerCase()}' category.</p>
