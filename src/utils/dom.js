@@ -40,7 +40,13 @@ export const addCustomStylesheet = (id, palette, prefix) => {
               'color: ' + button.text,
               'border-color: ' + button.border,
               'background-color: ' + button.background,
-          ]
+          ];
+          colorStyles[prefix + ' .cc-btn.cc-toggle label'] = [
+                'border-color: ' + button.background,
+          ];
+          colorStyles[prefix + ' .cc-btn.cc-toggle label::after'] = [
+                'background-color: ' + button.background,
+          ];
 
           if (button.padding) {
               colorStyles[prefix + ' .cc-btn'].push('padding: ' + button.padding);
